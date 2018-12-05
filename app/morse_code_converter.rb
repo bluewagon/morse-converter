@@ -15,7 +15,9 @@ class MorseCodeConverter
     until index > limit
       char = characters[index]
       converted += conv_character(char)
-      converted += MORSE_CHARACTER_DELIMITER unless index == limit
+      unless index == limit || char == ' ' || characters[index + 1] == ' '
+        converted += MORSE_CHARACTER_DELIMITER
+      end
       index += 1
     end
     converted
@@ -97,6 +99,8 @@ class MorseCodeConverter
       '---..'
     when '9'
       '----.'
+    when ' '
+      MORSE_WORD_DELIMITER
     end
   end
 end

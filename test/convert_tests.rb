@@ -4,6 +4,7 @@ require_relative '../app/morse_code_converter'
 class ConvertTests < Minitest::Test
   def setup
     @converter = MorseCodeConverter.new
+    @space = ' ' * 3
   end
 
   # testing one character at a time instead of all in one
@@ -14,7 +15,18 @@ class ConvertTests < Minitest::Test
     assert_equal '.-', code
   end
 
+  def test_it_should_convert_a_word
+    code = @converter.to_morse('blue')
+    assert_equal "-...#{@space}.-..#{@space}..-#{@space}.", code
+  end
 
+  def test_it_should_convert_multiple_words
+    code = @converter.to_morse('blue sky')
+    blue = "-...#{@space}.-..#{@space}..-#{@space}."
+    sky = "...#{@space}-.-#{@space}-.--"
+    word_delim = ' ' * 7
+    assert_equal "#{blue}#{word_delim}#{sky}", code
+  end
 
   def test_it_should_convert_a_to_morse
     code = @converter.to_morse('a')
