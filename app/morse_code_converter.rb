@@ -18,11 +18,9 @@ class MorseCodeConverter
     converted
   end
 
+  # @param [string] input
+  # @return [string]
   def to_characters(input)
-
-    # '.-'
-    # words = ['.-']
-    #
     words = input.split(Morse::MORSE_WORD_DELIMITER)
     index = 0
     converted = ''
