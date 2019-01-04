@@ -60,7 +60,7 @@ class Main
 
   if options[:output] && !@error
     file = options[:output]
-    File.open(file, 'a+' ) do |f|
+    File.open(file, 'a+') do |f|
       if options[:words]
         f.write(options[:words])
       elsif options[:morse]

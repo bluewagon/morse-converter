@@ -8,7 +8,7 @@ class ConvertTests < Minitest::Test
   end
 
   # testing one character at a time instead of all in one
-  # test so it will be easier to see which one specifically breaks in refactors
+  # test so it will be easier to see which one specifically breaks during any refactoring
 
   def test_it_should_handle_uppercase
     code = @converter.to_morse('A')
